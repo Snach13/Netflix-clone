@@ -1,19 +1,24 @@
 import { ArrowBackOutlined } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
 import "./watch.scss";
 
 function Watch() {
+  const location = useLocation();
+  const movie = location.movie;
   return (
     <div className="watch">
-      <div className="back">
-        <ArrowBackOutlined />
-        Home
-      </div>
+      <Link to="/">
+        <div className="back">
+          <ArrowBackOutlined />
+          Home
+        </div>
+      </Link>
       <video
         className="video"
         autoPlay
         progress
         controls
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        src={movie.video}
       ></video>
     </div>
   );
